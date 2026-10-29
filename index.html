@@ -1,250 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Will You Be My Valentine?</title>
-  <!-- Canvas Confetti Library for celebration effects -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f7dcd9;
-      overflow: hidden;
-    }
-    .wrapper {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 90%;
-      position: relative;
-      transition: transform 0.3s ease;
-    }
-    .gif-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 200px;
-    }
-    .gif {
-      max-width: 100%;
-      max-height: 220px;
-      border-radius: 15px;
-      object-fit: contain;
-    }
-    .question {
-      font-size: 24px;
-      color: #333333;
-      margin: 20px 0;
-      font-weight: bold;
-      line-height: 1.3;
-    }
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      min-height: 60px;
-    }
-    .btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      font-weight: bold;
-      outline: none;
-      user-select: none;
-    }
-    .btn:active {
-      transform: scale(0.95);
-    }
-    #yesButton {
-      background-color: #f06292;
-      color: white;
-      box-shadow: 0 4px 10px rgba(240, 98, 146, 0.4);
-      z-index: 10;
-    }
-    #yesButton:hover {
-      background-color: #ec407a;
-    }
-    #noButton {
-      background-color: #e0e0e0;
-      color: #333333;
-    }
-    #noButton:hover {
-      background-color: #d6d6d6;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>करवा चौथ की शुभकामनाएँ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@300;400;600&display=swap');
 
-    /* Floating hearts background animation */
-    .heart {
-      position: absolute;
-      color: #f06292;
-      font-size: 20px;
-      animation: floatUp 4s linear infinite;
-      opacity: 0.6;
-      pointer-events: none;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #1b032b 0%, #0a0111 100%);
+            color: #ffd700;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-  </style>
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 80%;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #ff4500, 0 0 25px #ffd700;
+            animation: glow 2s infinite alternate;
+        }
+
+        p {
+            font-size: 1.4rem;
+            margin: 15px 0;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        .shayari {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #ff69b4;
+            margin: 30px 0;
+            font-style: italic;
+            border-left: 4px solid #ff4500;
+            padding-left: 20px;
+        }
+
+        .wish {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-top: 30px;
+        }
+
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 120px;
+            height: 120px;
+            background: #fff8dc;
+            border-radius: 50%;
+            box-shadow: 0 0 40px #ffffe0, 0 0 80px #ffd700;
+            z-index: 1;
+            animation: float 4s ease-in-out infinite alternate;
+        }
+
+        .diya {
+            width: 80px;
+            height: 80px;
+            background: url('https://cdn-icons-png.flaticon.com/512/3389/3389146.png') no-repeat center/contain;
+            margin: 20px auto;
+            animation: flicker 1s infinite alternate;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff4500, #ffd700);
+            color: #fff;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #ff4500, 0 0 30px #ffd700;
+        }
+
+        #surprise {
+            display: none;
+            margin-top: 25px;
+            font-size: 1.6rem;
+            color: #ffb6c1;
+            font-weight: 600;
+            animation: popIn 0.5s ease-in-out;
+        }
+
+        .audio-controls {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .audio-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd700;
+            border: 1px solid #ffd700;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .audio-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff4500, 0 0 20px #ffd700; }
+            to { text-shadow: 0 0 20px #ff69b4, 0 0 40px #ffa500; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.8; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .moon { width: 80px; height: 80px; top: 20px; right: 20px; }
+            .container { padding: 25px; }
+            .shayari { font-size: 1.4rem; padding-left: 15px; }
+        }
+    </style>
 </head>
 <body>
+    <div class="stars"></div>
+    <div class="moon"></div>
 
-  <!-- Card Wrapper -->
-  <div class="wrapper" id="cardWrapper">
-    <!-- Animated GIF / Illustration -->
-    <div class="gif-container">
-      <img 
-        id="valentineGif" 
-        class="gif" 
-        src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG83cnB3MjVxZ3FkZzZsZzh4eXF4M2V6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cLS1YxsMxbP2w/giphy.gif" 
-        alt="Cute begging cat"
-        onerror="this.onerror=null; this.src='https://placehold.co/300x200/f06292/ffffff?text=Be+My+Valentine!';"
-      />
+    <div class="container">
+        <div class="diya"></div>
+        <h1>करवा चौथ की शुभकामनाएँ</h1>
+        
+        <div class="shayari">
+            "चाँद भी देखे तुम्हें तो शर्मा जाए,<br>
+            तुम्हारी सादगी पर ये दिल कुर्बान हो जाए."
+        </div>
+
+        <p>मेरी खूबसूरत राजकुमारी को करवा चौथ की बहुत-बहुत बधाई!</p>
+
+        <div class="audio-controls">
+            <button class="audio-btn" onclick="pauseAudio()">⏸️ रोकें</button>
+        </div>
+
+        <!-- Audio element with autoplay and loop -->
+        <audio id="background-audio" autoplay loop>
+            <source src="https://raw.githubusercontent.com/username/repo/main/audio/ZameenSeAasmanTakHum.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="wish">Happy Karwa Chauth!</div>
+        <button onclick="reveal()">प्यारा सा सरप्राइज</button>
+        <div id="surprise">✨ तुम्हारी एक मुस्कान मेरी पूरी दुनिया रोशन कर देती है, Happy Karwa Chauth my love! ❤️</div>
     </div>
 
-    <!-- Dynamic Heading -->
-    <h1 class="question" id="questionText">Will you be my Valentine? 💕</h1>
+    <script>
+        var audio = document.getElementById("background-audio");
 
-    <!-- Button Options -->
-    <div class="btn-group" id="btnGroup">
-      <button class="btn" id="yesButton">Yes</button>
-      <button class="btn" id="noButton">No</button>
-    </div>
-  </div>
+        function pauseAudio() {
+            if (audio.paused) {
+                audio.play();
+                document.querySelector('.audio-btn').innerText = "⏸️ रोकें";
+            } else {
+                audio.pause();
+                document.querySelector('.audio-btn').innerText = "▶️ चलाएं";
+            }
+        }
 
-  <script>
-    // Escalating messages when clicking 'No'
-    const noPhrases = [
-      "No",
-      "Are you sure? 🥺",
-      "Think again! 💭",
-      "Pleaaseee? 🙏",
-      "Don't do this to me! 💔",
-      "You're breaking my heart! 😿",
-      "I'll buy you chocolate! 🍫",
-      "Pretty please? ✨",
-      "Give it another thought! 🧐",
-      "Surely you don't mean that! 🌹",
-      "Just press YES! ❤️"
-    ];
-
-    let noCount = 0;
-    let yesScale = 1;
-    let paddingSize = 10;
-    let fontSize = 16;
-
-    const yesBtn = document.getElementById('yesButton');
-    const noBtn = document.getElementById('noButton');
-    const questionText = document.getElementById('questionText');
-    const valentineGif = document.getElementById('valentineGif');
-    const btnGroup = document.getElementById('btnGroup');
-
-    // Create ambient floating hearts background
-    function createBackgroundHearts() {
-      const heartSymbols = ['💖', '💕', '🌸', '✨', '❤️'];
-      for (let i = 0; i < 15; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        heart.style.animationDelay = (Math.random() * 5) + 's';
-        heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
-        document.body.appendChild(heart);
-      }
-    }
-
-    createBackgroundHearts();
-
-    // Event Listener for "No" Button
-    noBtn.addEventListener('click', () => {
-      noCount++;
-      
-      // Update No Button text dynamically
-      const phraseIndex = Math.min(noCount, noPhrases.length - 1);
-      noBtn.innerText = noPhrases[phraseIndex];
-
-      // Progressively grow the "Yes" button
-      yesScale += 0.35;
-      paddingSize += 4;
-      fontSize += 3;
-
-      yesBtn.style.transform = `scale(${yesScale})`;
-      yesBtn.style.padding = `${paddingSize}px ${paddingSize * 2}px`;
-      yesBtn.style.fontSize = `${fontSize}px`;
-
-      // Slightly add subtle dodge effect if pressed many times
-      if (noCount > 5) {
-        const randomX = (Math.random() - 0.5) * 40;
-        const randomY = (Math.random() - 0.5) * 40;
-        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
-      }
-    });
-
-    // Event Listener for "Yes" Button
-    yesBtn.addEventListener('click', () => {
-      // Trigger Happy Success Screen
-      valentineGif.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2ZlZzN4M3N0NDFqODR0ZWJkZzZsZzh4eXF4M2V6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MDJ9IbxxvDUQM/giphy.gif"; // Happy dancing cat
-      questionText.innerHTML = "Yay! I knew you'd say yes! 🎉💕";
-
-      // Hide the buttons after selection
-      btnGroup.style.display = "none";
-
-      // Trigger Confetti Celebration
-      if (typeof confetti === 'function') {
-        const duration = 3 * 1000;
-        const animationEnd = Date.now() + duration;
-
-        (function frame() {
-          confetti({
-            particleCount: 5,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: ['#f06292', '#ff80ab', '#ff4081', '#ffffff']
-          });
-          confetti({
-            particleCount: 5,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: ['#f06292', '#ff80ab', '#ff4081', '#ffffff']
-          });
-
-          if (Date.now() < animationEnd) {
-            requestAnimationFrame(frame);
-          }
-        })();
-      }
-    });
-  </script>
-<audio autoplay loop controls>
-  <source src=https://github.com/romadevi731-lgtm/Son-g/raw/main/atlasaudio-romantic-621598.mp3 type="audio/mp3">
+        function reveal() {
+            var surprise = document.getElementById('surprise');
+            if (surprise.style.display === 'block') {
+                surprise.style.display = 'none';
+            } else {
+                surprise.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
